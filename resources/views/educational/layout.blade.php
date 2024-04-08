@@ -9,42 +9,52 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #a7ebe7;
+         
         }
         .container {
-            max-width: 960px;
-            margin: 20px auto;
+            max-width: 2000px;
+            margin: 40px auto;
             padding: 35px;
-            background-color: #81d1b7;
+            background-color: #aec0f3;
             border-radius: 5px;
             box-shadow: 0 0 10px rgba(160, 176, 205, 0.1);
         }
         h1, h2, h3 {
             margin-top: 0;
         }
-        table {
+        .container {
+            width: 100%;
+            overflow-x: auto;
+        }
+
+        .table {
+            width: 100%;
+            table-layout: auto;
+        }
+
+        .table th, .table td {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        /* table {
             width: 100%;
             border-collapse: collapse;
         }
         th, td {
-            padding: 8px;
+            padding: 10px;
             text-align: left;
             border-bottom: 1px solid #ddd;
-        }
+        } */
         th {
             background-color: #f2f2f2;
             font-weight: bold;
         }
         tr:hover {
-            background-color: #f5f5f5;
+            background-color: #797373;
         }
+
     </style>
 </head>
-<body>
-
-<div class="container">
-    @yield('content')
-</div>
-
-</body>
+<body>  
 </html>

@@ -26,7 +26,6 @@ use Illuminate\Support\Facades\Route;
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::resource('users', UserController::class);
 Route::get('/', [App\Http\Controllers\FrontendController::class, 'index'])->name('users');
 Route::resource('abouts', AboutController::class);
 Route::resource('skills', SkillController::class);
@@ -34,5 +33,10 @@ Route::resource('educationals', EducationalContoller::class);
 Route::resource('experiences', ExperienceController::class);
 Route::resource('webinars', WebinarController::class);
 Route::resource('blogs', BlogController::class);
+Route::resource('users', UserController::class);
+
+Route::middleware('role:Admin')->group( function () {
+});
+
 
 

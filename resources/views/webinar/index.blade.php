@@ -1,11 +1,13 @@
 @extends('webinar.layout')
+@extends('home')
+@section('table')
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Experience</title>
 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" >
+  
 </head>
 <body>
 
@@ -16,9 +18,6 @@
             <div class="pull-left">
                 <h2>Webinar Table</h2>
             </div>
-            <div class="pull-right mb-2">
-                <a class="btn btn-success" href="{{ route('webinars.create') }}"> Create</a>
-            </div>
         </div>
     </div>
    
@@ -27,7 +26,7 @@
             <p>{{ $message }}</p>
         </div>
     @endif
-   
+    <div class="table-responsive">
     <table class="table table-bordered">
         <tr>
             <th>#</th>
@@ -35,16 +34,19 @@
             <th>Agenda</th>
             <th>Host Name</th>
             <th>Date</th>
+            @if(auth()->user()->role != 'spectator')
            
             <th width="280px">Action</th>
+            @endif
         </tr>
         @foreach ($webinars as $webinar)
         <tr>
-            <td>{{ $webinar->id }}</td>
+            <td>{{ ++$i }}</td>
             <td>{{ $webinar->title}}</td>
             <td>{{ $webinar->agenda}}</td>
             <td>{{ $webinar->host_name}}</td>
             <td>{{ $webinar->date}}</td>
+            @if(auth()->user()->role != 'spectator')
            
            
             <td>
@@ -57,14 +59,21 @@
                     <button type="submit" class="btn btn-danger">Delete</button>
                 </form>
             </td>
+            @endif
         </tr>
         @endforeach
     </table>
 
-    <div class="pull-right">
+    <div class="pull-left">
         <a class="btn btn-primary" href="{{ route('home') }}" enctype="multipart/form-data"> Back</a>
+    </div>
+    <div class="pull-left mb-2">
+        @if(auth()->user()->role != 'spectator')
+        <a class="btn btn-success" href="{{ route('webinars.create') }}"> Create</a>
+        @endif
     </div>
 
 
 </body>
 </html>
+@endsection

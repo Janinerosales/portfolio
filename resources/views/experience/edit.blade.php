@@ -1,10 +1,12 @@
 @extends('experience.layout')
+@extends('home')
+@section('table')
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Edit</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+ 
 </head>
 <body>
 
@@ -49,7 +51,7 @@
                     @enderror
                 </div>
             </div>
-        
+        </div>
 
         <div class="row">
             <div class="col-md-6">
@@ -65,22 +67,23 @@
             <div class="col-md-6">
                 <div class="form-group">
                     <label for="image">Image:</label>
-                    <input type="file" name="image" value="{{ $experience->image }}" class="form-control" placeholder="Image">
+                    <input type="file" name="image" value="{{$experience->image}}" class= "form-control" >
                     @error('image')
                     <div class="alert alert-danger mt-1">{{ $message }}</div>
                     @enderror
                 </div>
             </div>
+        </div>
 
-            <div class="row">
-                <div class="col-md-12 text-right">
-                    <a class="btn btn-danger btn-back" href="{{ route('experiences.index') }}">Back</a>
-                    <button type="submit" class="btn btn-primary">Submit</button>
-                </div>
+        <div class="row">
+            <div class="col-md-12 text-left">
+                <a class="btn btn-danger btn-back" href="{{ route('experiences.index') }}">Back</a>
+                <button type="submit" class="btn btn-primary">Submit</button>
             </div>
+        </div>
 
     </form>
-</div>
 
 </body>
 </html>
+@endsection

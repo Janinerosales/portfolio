@@ -15,7 +15,7 @@ class SkillController extends Controller
     {
         //
         $skills= Skill::get();
-        return view('skill.index', compact('skills'));
+        return view('skill.index', compact('skills'))->with('i');
     }
 
     /**
@@ -24,6 +24,10 @@ class SkillController extends Controller
     public function create()
     {
         //
+        if(auth()->user()->role =="spectator"){
+            return abort(403, 'Denied Access');
+        }
+
         return view('skill.create');
     }
 
@@ -52,6 +56,9 @@ class SkillController extends Controller
     public function edit(Skill $skill)
     {
         //
+        if(auth()->user()->role =="spectator"){
+            return abort(403, 'Denied Access');
+        }
         return view('skill.edit', compact('skill'));
     }
 

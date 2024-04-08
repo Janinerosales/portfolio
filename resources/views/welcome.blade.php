@@ -74,7 +74,7 @@
         <div class="container">
           <!--<p class="display-6 color-d">Hello, world!</p>-->
           <h1 class="hero-title mb-4">I am Janine Rosales</h1>
-          <p class="hero-subtitle"><span class="typed" data-typed-items="Graphic Design"></span></p>
+          <p class="hero-subtitle"><span class="typed" data-typed-items="Graphic Design,Photography"></span></p>
           <!-- <p class="pt-3"><a class="btn btn-primary btn js-scroll px-4" href="#about" role="button">Learn More</a></p> -->
         </div>
       </div>
@@ -209,8 +209,8 @@
             <div class="box-shadow-full">
               <div class="section-title">
                 <h2 class="title-left">EXPERIENCES</h2>
-                @foreach($experiences as $experience)
                 <div class="row">
+                  @foreach($experiences as $experience)
                   <div class="col-lg-6" data-aos="fade-up">
                     <div class="experiences-item">
                       <h4>{{ $experience->title }}</h4>
@@ -219,8 +219,8 @@
                       <img src="{{'storage/'. $experience->image }}" alt="Experience Image" style="width: 100%; height: 40%;">
                     </div>
                   </div>
+                  @endforeach
                 </div>
-                @endforeach
               </div>
             </div>
           </div>
@@ -279,7 +279,7 @@
     <!-- ======= Blog Section ======= -->
     <section id="blog" class="blog-mf sect-pt4 route">
       <div class="container" style="background-color: skyblue;">
-          <div class="row">
+          <div class="row justify-content-center">
               <div class="col-sm-12">
                   <div class="title-box text-center">
                       <h3 class="title-a">

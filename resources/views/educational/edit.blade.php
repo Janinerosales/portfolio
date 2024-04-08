@@ -1,10 +1,12 @@
 @extends('educational.layout')
+@extends('home')
+@section('table')
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Edit</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
 </head>
 <body>
 
@@ -33,7 +35,7 @@
         <div class="row">
             <div class="col-md-6">
                 <div class="form-group">
-                    <label for="name">Grade Level:</label>
+                    <label for="grade_level">Grade Level:</label>
                     <input type="text" name="grade_level" value="{{ $educational->grade_level }}" class="form-control" placeholder="Grade Level">
                     @error('grade_level')
                     <div class="alert alert-danger mt-1">{{ $message }}</div>
@@ -49,7 +51,7 @@
                     @enderror
                 </div>
             </div>
-        
+        </div>
 
         <div class="row">
             <div class="col-md-6">
@@ -70,15 +72,17 @@
                     @enderror
                 </div>
             </div>
-            <div class="row">
-                <div class="col-md-12 text-right">
-                    <a class="btn btn-danger btn-back" href="{{ route('educationals.index') }}">Back</a>
-                    <button type="submit" class="btn btn-primary">Submit</button>
-                </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12 text-left">
+                <a class="btn btn-danger btn-back" href="{{ route('educationals.index') }}">Back</a>
+                <button type="submit" class="btn btn-primary">Submit</button>
             </div>
+        </div>
 
     </form>
-</div>
 
 </body>
 </html>
+@endsection

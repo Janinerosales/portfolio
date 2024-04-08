@@ -9,13 +9,13 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #a7ebe7;
+           
         }
         .container {
             max-width: 960px;
             margin: 20px auto;
             padding: 20px;
-            background-color: #81d1b7;
+            background-color: #aec0f3;
             border-radius: 5px;
             box-shadow: 0 0 10px rgba(160, 176, 205, 0.1);
         }
@@ -41,10 +41,4 @@
     </style>
 </head>
 <body>
-
-<div class="container">
-    @yield('content')
-</div>
-
-</body>
 </html>

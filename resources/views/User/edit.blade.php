@@ -1,10 +1,11 @@
+@extends ('User.layout')
+@extends('home')
+@section('table')
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>User</title>
-
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" >
 </head>
 <body>
 
@@ -14,9 +15,6 @@
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
                 <h2>Edit User</h2>
-            </div>
-            <div class="pull-right">
-                <a class="btn btn-primary" href="{{ route('users.index') }}" enctype="multipart/form-data"> Back</a>
             </div>
         </div>
     </div>
@@ -30,6 +28,17 @@
     <form action="{{ route('users.update', $user->id) }}" method="POST" enctype="multipart/form-data">
         @csrf
         @method('PUT')
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="text" name="name" value="{{ $user->name }}" class="form-control" placeholder=" Name">
+                    @error('name')
+                    <div class="alert alert-danger mt-1">{{ $message }}</div>
+                    @enderror
+                </div>
+            </div>
    
          <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-12">
@@ -43,11 +52,12 @@
             </div>
             
               <button type="submit" class="btn btn-primary ml-3">Submit</button>
+              <div class="pull-right">
+                <a class="btn btn-danger" href="{{ route('users.index') }}" enctype="multipart/form-data"> Back</a>
+            </div>
           
         </div>
-   
     </form>
-</div>
-
 </body>
 </html>
+@endsection

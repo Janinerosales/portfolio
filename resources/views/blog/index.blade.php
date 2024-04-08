@@ -1,11 +1,13 @@
 @extends('blog.layout')
+@extends('home')
+@section('table')
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>BLOG</title>
 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" >
+  
 </head>
 <body>
 
@@ -16,9 +18,6 @@
             <div class="pull-left">
                 <h2>Blog Table</h2>
             </div>
-            <div class="pull-right mb-2">
-                <a class="btn btn-success" href="{{ route('blogs.create') }}"> Create</a>
-            </div>
         </div>
     </div>
    
@@ -27,7 +26,7 @@
             <p>{{ $message }}</p>
         </div>
     @endif
-   
+    <div class="table-responsive">
     <table class="table table-bordered">
         <tr>
             <th>#</th>
@@ -35,12 +34,14 @@
             <th>Image</th>
             <th>Content</th>
             <th>Date</th>
+            @if(auth()->user()->role != 'spectator')
            
             <th width="280px">Action</th>
+            @endif
         </tr>
         @foreach ($blogs as $blog)
         <tr>
-            <td>{{ $blog->id }}</td>
+            <td>{{ ++$i }}</td>
             <td>{{ $blog->title}}</td>
              
              <td>
@@ -52,6 +53,7 @@
             </td>
             <td>{{ $blog->content}}</td>
             <td>{{ $blog->date}}</td>
+            @if(auth()->user()->role != 'spectator')
 
             <td>
                 <form action="{{ route('blogs.destroy',$blog->id) }}" method="Post">
@@ -63,14 +65,20 @@
                     <button type="submit" class="btn btn-danger">Delete</button>
                 </form>
             </td>
+            @endif
         </tr>
         @endforeach
     </table>
 
-    <div class="pull-right">
+    <div class="pull-left">
         <a class="btn btn-primary" href="{{ route('home') }}" enctype="multipart/form-data"> Back</a>
     </div>
-
+    <div class="pull-left mb-2">
+        @if(auth()->user()->role != 'spectator')
+        <a class="btn btn-success" href="{{ route('blogs.create') }}"> Create</a>
+        @endif
+    </div>
 
 </body>
 </html>
+@endsection

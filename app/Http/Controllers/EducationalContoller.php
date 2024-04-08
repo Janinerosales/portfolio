@@ -16,7 +16,7 @@ class EducationalContoller extends Controller
     {
         //
         $educationals = Educational::get();
-        return view('educational.index', compact('educationals'));
+        return view('educational.index', compact('educationals'))->with('i');
     }
 
     /**
@@ -25,6 +25,9 @@ class EducationalContoller extends Controller
     public function create()
     {
         //
+        if(auth()->user()->role =="spectator"){
+            return abort(403, 'Denied Access');
+        }
         return view('educational.create');
     }
 
@@ -52,6 +55,9 @@ class EducationalContoller extends Controller
     public function edit(Educational $educational)
     {
         //
+        if(auth()->user()->role =="spectator"){
+            return abort(403, 'Denied Access');
+        }
         return view('educational.edit', compact('educational'));
     }
 

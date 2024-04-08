@@ -1,11 +1,11 @@
 @extends('skill.layout')
+@extends('home')
+@section('table')
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Skill</title>
-
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" >
 </head>
 <body>
 
@@ -16,9 +16,6 @@
             <div class="pull-left">
                 <h2>Skill Table</h2>
             </div>
-            <div class="pull-right mb-2">
-                <a class="btn btn-success" href="{{ route('skills.create') }}"> Create Skill Yourself</a>
-            </div>
         </div>
     </div>
    
@@ -27,21 +24,26 @@
             <p>{{ $message }}</p>
         </div>
     @endif
-   
+    <div class="table-responsive">
     <table class="table table-bordered">
         <tr>
             <th>#</th>
             <th>Expertise</th>
             <th>Percentage</th>
+            @if(auth()->user()->role != 'spectator')
+            
             <th width="280px">Action</th>
+            @endif
         </tr>
         @foreach ($skills as $skill)
         <tr>
-            <td>{{ $skill->id }}</td>
+            <td>{{ ++$i }}</td>
             <td>{{ $skill->expertise }}</td>
             <td>{{ $skill->percentage }}</td>
+            @if(auth()->user()->role != 'spectator')
            
             <td>
+
                 <form action="{{ route('skills.destroy',$skill->id) }}" method="Post">
     
                     <a class="btn btn-primary" href="{{ route('skills.edit',$skill->id) }}">Edit</a>
@@ -51,14 +53,20 @@
                     <button type="submit" class="btn btn-danger">Delete</button>
                 </form>
             </td>
+            @endif
         </tr>
         @endforeach
     </table>
 
-    <div class="pull-right">
+    <div class="pull-left">
         <a class="btn btn-primary" href="{{ route('home') }}" enctype="multipart/form-data"> Back</a>
     </div>
-
-
+    <div class="pull-left mb-2">
+        @if(auth()->user()->role != 'spectator')
+        <a class="btn btn-success" href="{{ route('skills.create') }}"> Create Skill Yourself</a>
+        @endif
+    </div>
+  
 </body>
 </html>
+@endsection

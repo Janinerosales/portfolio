@@ -5632,7 +5632,9 @@ input[type="button"].btn-block {
   -webkit-box-pack: justify;
   -ms-flex-pack: justify;
   justify-content: space-between;
-  padding: 0.5rem 1rem; }
+  padding: 50px;
+  }
+
   .navbar .container,
   .navbar .container-fluid, .navbar .container-sm, .navbar .container-md, .navbar .container-lg, .navbar .container-xl {
     display: -webkit-box;
@@ -5709,6 +5711,16 @@ input[type="button"].btn-block {
   content: "";
   background: no-repeat center center;
   background-size: 100% 100%; }
+  .container-scroller {
+    position: relative;
+}
+.navbar {
+    background-color: #fff; 
+    border-bottom: 1px solid #ddd; 
+}
+.main-panel {
+    padding-top: 70px; 
+}
 
 @media (max-width: 575.98px) {
   .navbar-expand-sm > .container,
