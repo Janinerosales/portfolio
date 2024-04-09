@@ -39,6 +39,8 @@ Route::resource('users', UserController::class);
 Route::resource('contacts', ContactController::class);
 
 Route::middleware('role:Admin')->group( function () {
+Route::resource('Admin', UserController::class)->middleware('PreventionDelete');
+
 Route::resource('contacts', ContactController::class);
 });
 
