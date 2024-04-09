@@ -9,26 +9,15 @@
   <meta content="" name="description">
   <meta content="" name="keywords">
 
-  <!-- Favicons -->
+
   <link href="assets/img/favicon.png" rel="icon">
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
-
-  <!-- Vendor CSS Files -->
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
   <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
   <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-
-  <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
 
-  <!-- =======================================================
-  * Template Name: DevFolio
-  * Updated: Mar 13 2024 with Bootstrap v5.3.3
-  * Template URL: https://bootstrapmade.com/devfolio-bootstrap-portfolio-html-template/
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
 </head>
 
 <body>
@@ -37,26 +26,21 @@
   <header id="header" class="fixed-top">
     <div class="container d-flex align-items-center justify-content-between">
 
-      {{-- @foreach($data as $email)
-      <h1><a href="#about">{{ucwords($email->$email)}}</a</h1>
-        @endforeach --}}
 
       <h1 class="logo"><a href="index.html">Jnnrslsfolio</a></h1>
-      {{-- @foreach($data as $email)
-      <h1><a href="#about">{{ucwords($email->$email)}}</a</h1>
-        @endforeach --}}
-      <!-- Uncomment below if you prefer to use an image logo -->
-      <!-- <a href="index.html" class="logo"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
-
       <nav id="navbar" class="navbar">
         <ul>
           <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
-          <li><a class="nav-link scrollto" href="#about">About</a></li>
-          <li><a class="nav-link scrollto" href="#skills">Skills</a></li>
-          <li><a class="nav-link scrollto" href="#educational">Educational</a></li>
-          <li><a class="nav-link scrollto" href="#experiences">Experiences</a></li>
-          <li><a class="nav-link scrollto" href="#webinar">Webinar</a></li>
-          <li><a class="nav-link scrollto " href="#blog">Blogs</a></li>
+          <li class="dropdown"><a href="#"><span>Resume</span> <i class="bi bi-chevron-right"></i></a>
+            <ul>
+              <li><a href="#about">About</a></li>
+              <li><a href="#skills">Skills</a></li>
+              <li><a href="#educational">Educational</a></li>
+              <li><a href="#experiences">Experience</a></li>
+              <li><a href="#webinar">Webinar</a></li>
+              <li><a href="#blog">Blog</a></li>
+            </ul>
+          </li>
           <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
           <li><a class="nav-link scrollto" href="{{route('login')}}">LogIn</a></li>
         </ul>
@@ -72,10 +56,10 @@
     <div class="hero-content display-table">
       <div class="table-cell">
         <div class="container">
-          <!--<p class="display-6 color-d">Hello, world!</p>-->
+        
           <h1 class="hero-title mb-4">I am Janine Rosales</h1>
           <p class="hero-subtitle"><span class="typed" data-typed-items="Graphic Design,Photography"></span></p>
-          <!-- <p class="pt-3"><a class="btn btn-primary btn js-scroll px-4" href="#about" role="button">Learn More</a></p> -->
+          
         </div>
       </div>
     </div>
@@ -334,111 +318,81 @@
     <section id="contact" class="paralax-mf footer-paralax bg-image sect-mt4 route" style="background-image: url(assets/img/overlay-bg.jpg)">
       <div class="overlay-mf"></div>
       <div class="container">
-        <div class="row">
-          <div class="col-sm-12">
-            <div class="contact-mf">
-              <div id="contact" class="box-shadow-full">
-                <div class="row">
-                  <div class="col-md-6">
-                    <div class="title-box-2">
-                      <h5 class="title-left">
-                        Send Message Us
-                      </h5>
-                    </div>
-                    <div>
-                      <form action="forms/contact.php" method="post" role="form" class="php-email-form">
-                        <div class="row">
-                          <div class="col-md-12 mb-3">
-                            <div class="form-group">
-                              <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
-                            </div>
+          <div class="row justify-content-center align-items-center">
+              <div class="col-sm-12">
+                  <div class="contact-mf">
+                      <div id="contact" class="box-shadow-full">
+                          <div class="row">
+                              <div class="col-md-6">
+                                  <div class="title-box-2">
+                                      <h5 class="title-left">
+                                          Send Message Us
+                                      </h5>
+                                  </div>
+                                  <div>
+                                      <form action="{{ route('contacts.store') }}" method="POST" enctype="multipart/form-data" class="single-form quate-form wow fadeInUp" data-toggle="validator">
+                                          @csrf
+                                          <div id="msgSubmit" class="h3 text-center hidden"></div>
+                                          <div class="row">
+                                              <div class="col-md-12">
+                                                  <label for="first_name">First Name</label>
+                                                  <input name="first_name" class="contact-name form-control" id="name" type="text" placeholder="First Name" required>
+                                              </div>
+                                              <div class="col-md-12">
+                                                  <label for="last_name">Last Name</label>
+                                                  <input name="last_name" class="contact-email form-control" id="L_name" type="text" placeholder="Last Name" required>
+                                              </div>
+                                              <div class="col-md-12">
+                                                  <label for="email">Email</label>
+                                                  <input name="email" class="contact-subject form-control" id="email" type="email" placeholder="Your Email" required>
+                                              </div>
+                                              <div class="col-md-12">
+                                                  <label for="message">Message</label>
+                                                  <textarea name="message" class="form-control contact-message" id="message" rows="10" placeholder="Your Message" required></textarea>
+                                              </div>
+                                              <div class="btn-form col-md-12">
+                                                  <div class="text-center">
+                                                      <button type="submit" class="btn btn-fill btn-primary" id="form-submit">Send Message</button>
+                                                  </div>
+                                              </div>
+                                          </div>
+                                      </form>
+                                  </div>
+                              </div>
+                              <div class="col-md-6">
+                                  <div class="title-box-2 pt-4 pt-md-0">
+                                      <h5 class="title-left">
+                                          Get in Touch
+                                      </h5>
+                                  </div>
+                                  <div class="more-info">
+                                      <p class="lead">
+                                        I hope this message finds you well. 
+                                        I wanted to reach out and express my interest in connecting with you.
+                                        I'm always open to new opportunities and conversations.
+                                      </p>
+                                      <ul class="list-ico">
+                                          <li><span class="bi bi-geo-alt"></span>Brgy Sto.Nino Hilongos, Leyte</li>
+                                          <li><span class="bi bi-phone"></span>09268261787</li>
+                                          <li><span class="bi bi-envelope"></span>rhosalesj@gmail.com</li>
+                                      </ul>
+                                  </div>
+                                  <div class="socials">
+                                      <ul>
+                                          <li><a href="https://www.facebook.com/janine.rosales.777"><span class="ico-circle"><i class="bi bi-facebook"></i></span></a></li>
+                                          <li><a href="https://www.instagram.com/jnnrsls__/"><span class="ico-circle"><i class="bi bi-instagram"></i></span></a></li>
+                                          <li><a href="https://twitter.com/rosales37519"><span class="ico-circle"><i class="bi bi-twitter"></i></span></a></li>
+                                          <li><a href="https://www.linkedin.com/in/janine-rosales-a04b322bb/"><span class="ico-circle"><i class="bi bi-linkedin"></i></span></a></li>
+                                      </ul>
+                                  </div>
+                              </div>
                           </div>
-                          <div class="col-md-12 mb-3">
-                            <div class="form-group">
-                              <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
-                            </div>
-                          </div>
-                          <div class="col-md-12 mb-3">
-                            <div class="form-group">
-                              <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required>
-                            </div>
-                          </div>
-                          <div class="col-md-12">
-                            <div class="form-group">
-                              <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
-                            </div>
-                          </div>
-                          <div class="col-md-12 text-center my-3">
-                            <div class="loading">Loading</div>
-                            <div class="error-message"></div>
-                            <div class="sent-message">Your message has been sent. Thank you!</div>
-                          </div>
-                          <div class="col-md-12 text-center">
-                            <button type="submit" class="button button-a button-big button-rouded">Send Message</button>
-                          </div>
-                        </div>
-                      </form>
-                    </div>
+                      </div>
                   </div>
-                  <div class="col-md-6">
-                    <div class="title-box-2 pt-4 pt-md-0">
-                      <h5 class="title-left">
-                        Get in Touch
-                      </h5>
-                    </div>
-                    <div class="more-info">
-                      <p class="lead">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis dolorum dolorem soluta quidem
-                        expedita aperiam aliquid at.
-                        Totam magni ipsum suscipit amet? Autem nemo esse laboriosam ratione nobis
-                        mollitia inventore?
-                      </p>
-                      <ul class="list-ico">
-                        <li><span class="bi bi-geo-alt"></span>Brgy Sto.Nino Hilongos, Leyte</li>
-                        <li><span class="bi bi-phone"></span>09268261787</li>
-                        <li><span class="bi bi-envelope"></span>rhosalesj@gmail.com</li>
-                      </ul>
-                    </div>
-                    <div class="socials">
-                      <ul>
-                        <li><a href="https://www.facebook.com/janine.rosales.777"><span class="ico-circle"><i class="bi bi-facebook"></i></span></a></li>
-                        <li><a href="https://www.instagram.com/jnnrsls__/"><span class="ico-circle"><i class="bi bi-instagram"></i></span></a></li>
-                        <li><a href="https://twitter.com/rosales37519"><span class="ico-circle"><i class="bi bi-twitter"></i></span></a></li>
-                        <li><a href="https://www.linkedin.com/in/janine-rosales-a04b322bb/"><span class="ico-circle"><i class="bi bi-linkedin"></i></span></a></li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
               </div>
-            </div>
           </div>
-        </div>
       </div>
-    </section><!-- End Contact Section -->
-
-  </main><!-- End #main -->
-
-  <!-- ======= Footer ======= -->
-  {{-- <footer>
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-12">
-          <div class="copyright-box">
-            <p class="copyright">&copy; Copyright <strong>DevFolio</strong>. All Rights Reserved</p>
-            <div class="credits"> --}}
-              <!--
-              All the links in the footer should remain intact.
-              You can delete the links only if you purchased the pro version.
-              Licensing information: https://bootstrapmade.com/license/
-              Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=DevFolio
-            -->
-              {{-- Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </footer><!-- End  Footer --> --}}
+  </section>
 
   <div id="preloader"></div>
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>

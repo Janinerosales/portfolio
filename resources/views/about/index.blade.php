@@ -6,6 +6,7 @@
 <head>
     <meta charset="UTF-8">
     <title>About</title>
+    
 
 </head>
 <body>
@@ -70,9 +71,6 @@
     <div class="pull-left">
         <a class="btn btn-primary" href="{{ route('home') }}" enctype="multipart/form-data"> Back</a>
     </div>
-    {{-- <div class="pull-left mb-2">
-        <a class="btn btn-success" href="{{ route('abouts.create') }}"> Create</a>
-    </div> --}}
 
 </body>
 </html>

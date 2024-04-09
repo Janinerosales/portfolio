@@ -13,7 +13,7 @@ class FrontendController extends Controller
     public function index()
     {
         //
-        $user = DB::table('users')->where ('email','janine@gmail.com')->get();
+        $user = DB::table('users')->where ('email','janinerosales@gmail.com')->get();
 
         $about = DB::table('abouts')->get();
 
