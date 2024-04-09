@@ -138,7 +138,7 @@
                         @foreach($skills as $skill)
                         <span>{{$skill->expertise}}</span> <span class="pull-right">{{$skill->percentage}}%</span>
                         <div class="progress">
-                          <div class="progress-bar" role="progressbar" style="width: {{$skill->percentage}}%;" aria-valuenow="{{$skill->percentage}}" aria-valuemin="0" aria-valuemax="100"></div>
+                          <div class="progress-bar" role="progressbar" style="width: {{$skill->percentage}}%;" aria-valuenow="{{$skill->percentage}}" aria-valuemin="" aria-valuemax="100"></div>
                         </div>
                         @endforeach
                       </div>
