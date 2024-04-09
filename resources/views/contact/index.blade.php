@@ -68,7 +68,9 @@
         @endforeach
     </div>
     </table>
-    
+    <div class="pull-left">
+        <a class="btn btn-primary" href="{{ route('home') }}" enctype="multipart/form-data"> Back</a>
+    </div>
     @else
     <div class="row">
         <div class="col-lg-12">

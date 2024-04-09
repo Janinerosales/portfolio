@@ -37,15 +37,7 @@
             overflow: hidden;
             text-overflow: ellipsis;
         }
-        /* table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-        th, td {
-            padding: 10px;
-            text-align: left;
-            border-bottom: 1px solid #ddd;
-        } */
+     
         th {
             background-color: #f2f2f2;
             font-weight: bold;
@@ -53,6 +45,44 @@
         tr:hover {
             background-color: #797373;
         }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        } 
+
+        .card {
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-header {
+           background-color: #f0f0f0;
+           padding: 10px;
+           font-weight: bold;
+           border-bottom: 1px solid #ccc;
+        }
+
+         .card-body {
+           padding: 20px;
+    }
+
+    .card-title {
+        font-size: 18px;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+
+    .card-text {
+        margin-bottom: 10px;
+    }
+
+    .pull-left {
+        float: left;
+    }
+
 
     </style>
 </head>
