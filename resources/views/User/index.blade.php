@@ -36,7 +36,7 @@
         
         <tr>
             @foreach($user as $users)
-            @if(auth()->user()->id == $users->id || auth()->user()->role == 'Admin')
+            @if($users->role == 'spectator')
             <td>{{++$i}}</td>
             <td>{{$users->role}}</td>
             <td>{{$users->name}}</td>
