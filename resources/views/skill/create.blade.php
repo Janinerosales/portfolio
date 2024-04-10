@@ -43,7 +43,7 @@
             <div class="col-md-6">
                 <div class="form-group">
                     <label for="percentage">Percentage:</label>
-                    <input type="text" name="percentage" id="percentage" class="form-control" placeholder="Percentage">
+                    <input type="number" name="percentage" id="percentage" class="form-control" placeholder="Percentage">
                     @error('percentage')
                     <div class="alert alert-danger mt-1">{{ $message }}</div>
                     @enderror

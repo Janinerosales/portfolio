@@ -2,7 +2,8 @@
 @extends('home')
 @section('table')
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en">    
+    
 <head>
     <meta charset="UTF-8">
     <title>Users</title>
